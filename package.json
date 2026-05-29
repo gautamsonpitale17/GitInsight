@@ -4,22 +4,41 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:edge": "cross-env NEXT_RUNTIME=edge next dev",
     "build": "next build",
+    "build:analyze": "cross-env ANALYZE=true next build --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:overflow": "node scripts/check-overflow.mjs",
+    "validate:viewports": "node scripts/validate-viewports.mjs",
+    "test": "playwright test",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
+    "@upstash/redis": "^1.38.0",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.3.0",
+    "lucide-react": "^1.17.0",
     "next": "16.2.6",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "recharts": "^3.8.1",
+    "server-only": "^0.0.1",
+    "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^16.2.6",
+    "@playwright/test": "^1.60.0",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "^20.19.41",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "axe-core": "^4.11.3",
+    "cross-env": "^10.1.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
+    "playwright": "^1.52.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
